@@ -8,16 +8,30 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    var cardsViewModel = CardsViewModel()
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            NavigationStack{
+                ScrollView(.horizontal){
+                    HStack(spacing: 20) {
+                        ForEach(cardsViewModel.cards){ card in
+                            
+                            CardView(card: card)
+                            
+                        }
+                    }
+                    .padding(20)
+                    .scrollTargetLayout()
+                }
+                .scrollIndicators(.hidden)
+                
+                .scrollTargetBehavior(.viewAligned)
+                .navigationTitle("Acquista")
+            }
+            
         }
-        .padding()
     }
-}
 
 #Preview {
     ContentView()
