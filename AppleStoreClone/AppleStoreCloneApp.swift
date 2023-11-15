@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct AppleStoreCloneApp: App {
+    
+    @State private var backgroundLogic = BackgroundLogic()
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(backgroundLogic)
         }
     }
 }

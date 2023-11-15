@@ -37,17 +37,15 @@ struct ContentView: View {
                     }
                   // .padding(.vertical, 40)
                     .scrollIndicators(.hidden)
-                    
                     .scrollTargetBehavior(.viewAligned)
-                .navigationTitle("Acquista")
+                    .navigationTitle("Acquista")
                     Spacer()
                 }
             }
-            
-            
         }
     }
 
 #Preview {
     ContentView()
+        .environment(BackgroundLogic())
 }

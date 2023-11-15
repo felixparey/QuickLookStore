@@ -15,13 +15,16 @@ struct FlatLinkStyle: ButtonStyle {
 
 struct CardView: View {
     
+    @State private var isPresented = false
+    @Environment(BackgroundLogic.self) private var sheetsPresented
     var card: Card
     @State private var scale: CGFloat = 1.0
     
     var body: some View {
         
         Button(action: {
-            
+            isPresented = true
+            sheetsPresented.sheetIsPresented = isPresented
         }, label: {
             
             ZStack(alignment: .top){
@@ -33,10 +36,10 @@ struct CardView: View {
                     VStack(alignment: .leading, spacing: 0) {
                         Text("NOVITÁ")
                             .font(.caption)
-                            .foregroundStyle(.black)
-                            .opacity(0.5)
+                            .foregroundStyle(card.textColor)
+                            .opacity(0.7)
                         Text(card.title)
-                            .foregroundStyle(.black)
+                            .foregroundStyle(card.textColor)
                             .font(.largeTitle)
                             .fontWeight(.semibold)
                             
@@ -53,13 +56,19 @@ struct CardView: View {
             
         }) // End of Button
         .buttonStyle(FlatLinkStyle())
-        
+        .fullScreenCover(isPresented: $isPresented,onDismiss: {
+            isPresented = false
+            sheetsPresented.sheetIsPresented = isPresented
+        }, content: {
+            FullScreenSheet(card: card)
+        })
     }
 }
 
 
 #Preview {
-    CardView(card: Card(imageName: "Image1", title: "Television", price: 499))
+    CardView(card: Card(imageName: "TVCardImage", title: "Television", price: 499, description: "LOL", textColor: .white))
+        .environment(BackgroundLogic())
     
 }
 

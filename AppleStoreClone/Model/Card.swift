@@ -6,10 +6,13 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct Card: Identifiable{
     var id = UUID()
     var imageName: String
     var title: String
     var price: Int
+    var description: String
+    var textColor: Color
 }

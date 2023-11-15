@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D6944D22B056175009973FB /* BackgroundLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6944D12B056175009973FB /* BackgroundLogic.swift */; };
+		4D6944D42B05627B009973FB /* FullScreenSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6944D32B05627B009973FB /* FullScreenSheet.swift */; };
 		4D78BEC52B03C07600D00A8B /* AppleStoreCloneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D78BEC42B03C07600D00A8B /* AppleStoreCloneApp.swift */; };
 		4D78BEC72B03C07600D00A8B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D78BEC62B03C07600D00A8B /* ContentView.swift */; };
 		4D78BEC92B03C07700D00A8B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D78BEC82B03C07700D00A8B /* Assets.xcassets */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4D6944D12B056175009973FB /* BackgroundLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundLogic.swift; sourceTree = "<group>"; };
+		4D6944D32B05627B009973FB /* FullScreenSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenSheet.swift; sourceTree = "<group>"; };
 		4D78BEC12B03C07600D00A8B /* AppleStoreClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppleStoreClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D78BEC42B03C07600D00A8B /* AppleStoreCloneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleStoreCloneApp.swift; sourceTree = "<group>"; };
 		4D78BEC62B03C07600D00A8B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -40,6 +44,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D6944D52B056282009973FB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4D78BEC62B03C07600D00A8B /* ContentView.swift */,
+				4D78BED92B040A1F00D00A8B /* CardView.swift */,
+				4D6944D32B05627B009973FB /* FullScreenSheet.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4D6944D62B056298009973FB /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				4D78BED72B04097D00D00A8B /* CardsViewModel.swift */,
+				4D6944D12B056175009973FB /* BackgroundLogic.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		4D6944D72B0562B9009973FB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4D78BED52B0408FF00D00A8B /* Card.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		4D78BEB82B03C07600D00A8B = {
 			isa = PBXGroup;
 			children = (
@@ -60,10 +91,9 @@
 			isa = PBXGroup;
 			children = (
 				4D78BEC42B03C07600D00A8B /* AppleStoreCloneApp.swift */,
-				4D78BEC62B03C07600D00A8B /* ContentView.swift */,
-				4D78BED92B040A1F00D00A8B /* CardView.swift */,
-				4D78BED52B0408FF00D00A8B /* Card.swift */,
-				4D78BED72B04097D00D00A8B /* CardsViewModel.swift */,
+				4D6944D62B056298009973FB /* ViewModels */,
+				4D6944D52B056282009973FB /* Views */,
+				4D6944D72B0562B9009973FB /* Model */,
 				4D78BED32B0407CF00D00A8B /* PegasusTrail.usdz */,
 				4D78BEC82B03C07700D00A8B /* Assets.xcassets */,
 				4D78BECA2B03C07700D00A8B /* Preview Content */,
@@ -152,7 +182,9 @@
 			files = (
 				4D78BED82B04097D00D00A8B /* CardsViewModel.swift in Sources */,
 				4D78BEC72B03C07600D00A8B /* ContentView.swift in Sources */,
+				4D6944D22B056175009973FB /* BackgroundLogic.swift in Sources */,
 				4D78BED62B0408FF00D00A8B /* Card.swift in Sources */,
+				4D6944D42B05627B009973FB /* FullScreenSheet.swift in Sources */,
 				4D78BEC52B03C07600D00A8B /* AppleStoreCloneApp.swift in Sources */,
 				4D78BEDA2B040A1F00D00A8B /* CardView.swift in Sources */,
 			);
