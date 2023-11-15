@@ -11,24 +11,39 @@ struct ContentView: View {
     
     var cardsViewModel = CardsViewModel()
     
+    
     var body: some View {
             NavigationStack{
-                ScrollView(.horizontal){
-                    HStack(spacing: 20) {
-                        ForEach(cardsViewModel.cards){ card in
-                            
-                            CardView(card: card)
-                            
+                Divider()
+                VStack(alignment: .leading, spacing: 0) {
+                    
+                    Text("Da non perdere.")
+                        .font(.title)
+                        .bold()
+                        .padding([.top,.leading])
+                    ScrollView(.horizontal){
+                        HStack(spacing: 15) {
+                            ForEach(cardsViewModel.cards){ card in
+                                
+                                    CardView(card: card)
+                                        .clipShape(RoundedRectangle(cornerRadius: 15))
+                                        .shadow(radius: 8,y: 10)
+                                        .frame(width: 320)
+                            }
                         }
+                        .padding(20)
+                        .padding(.bottom, 20)
+                        .scrollTargetLayout()
                     }
-                    .padding(20)
-                    .scrollTargetLayout()
-                }
-                .scrollIndicators(.hidden)
-                
-                .scrollTargetBehavior(.viewAligned)
+                  // .padding(.vertical, 40)
+                    .scrollIndicators(.hidden)
+                    
+                    .scrollTargetBehavior(.viewAligned)
                 .navigationTitle("Acquista")
+                    Spacer()
+                }
             }
+            
             
         }
     }

@@ -12,7 +12,7 @@ import Observation
 class CardsViewModel{
     let cards: [Card] = [
         
-        Card(imageName: "Image", title: "Nike Shoe 1", price: 59),
+        Card(imageName: "Image", title: "Television", price: 499),
         Card(imageName: "Image1", title: "Nike Shoe 1", price: 59),
         Card(imageName: "Image2", title: "Nike Shoe 1", price: 59),
         Card(imageName: "Image3", title: "Nike Shoe 1", price: 59)
