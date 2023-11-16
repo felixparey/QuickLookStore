@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+
+
 struct ContentView: View {
     
     var cardsViewModel = CardsViewModel()
@@ -38,7 +40,20 @@ struct ContentView: View {
                   // .padding(.vertical, 40)
                     .scrollIndicators(.hidden)
                     .scrollTargetBehavior(.viewAligned)
-                    .navigationTitle("Acquista")
+                    .navigationTitle(Text("Acquista"))
+                    .toolbar{
+                        ToolbarItem(placement: .principal) {
+                            HStack {
+                                Spacer()
+                                Image("ProfileImage")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .clipShape(Circle())
+                            }
+                            .offset(y: 40)
+                        }
+
+                    }
                     Spacer()
                 }
             }

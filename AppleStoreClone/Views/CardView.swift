@@ -78,9 +78,9 @@ struct BuyView: View {
     
     var body: some View {
         ZStack {
-            Rectangle()
-                .foregroundStyle(.white)
-                .frame(height: 70)
+//            Rectangle()
+//                .foregroundStyle(.white)
+//                .frame(height: 70)
             HStack {
                 Text("A partire da € \(card.price)")
                     .font(.caption)
@@ -98,7 +98,9 @@ struct BuyView: View {
                     
                 })
             }
+            
             .padding()
+            .background(.white)
             
         }
     }

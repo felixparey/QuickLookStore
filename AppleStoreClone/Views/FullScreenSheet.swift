@@ -11,7 +11,7 @@ struct FullScreenSheet: View {
     
     @Environment(\.dismiss) private var isPresented
     @State private var backgroundGradient = LinearGradient(colors: [Color("TVBackground"),Color("TVBackground2") ], startPoint: .leading, endPoint: .trailing)
-    @State private var descriptionGradient = LinearGradient(colors: [Color("TVBackground"),Color("TVBackground2") ], startPoint: .leading, endPoint: .trailing)
+    @State private var descriptionGradient = LinearGradient(colors: [Color("TVBackground"),Color("TVBackground2") ], startPoint: .topLeading, endPoint: .bottomTrailing)
     var card: Card
     
     var body: some View {
@@ -31,9 +31,14 @@ struct FullScreenSheet: View {
                             .multilineTextAlignment(.center)
                             .foregroundStyle(descriptionGradient)
                         
-                        Button("Guarda in AR "){
+                        Button(action: {
                             
-                        }.buttonStyle(PlainButtonStyle())
+                        }, label: {
+                            Text("Guarda in AR")
+                                .underline()
+                                .tint(.white)
+                                .bold()
+                        })
                     }
                     .offset(y: 50)
                     .padding()
@@ -56,9 +61,9 @@ struct FullScreenSheet: View {
         .ignoresSafeArea()
         .overlay(alignment: .bottom, content: {
             ZStack {
-                RoundedRectangle(cornerRadius: 15)
-                    .foregroundStyle(.regularMaterial)
-                    .frame(height: 70)
+//                RoundedRectangle(cornerRadius: 15)
+//                    .foregroundStyle(.regularMaterial)
+//                    .frame(height: 70)
                 HStack {
                     Text("A partire da € \(card.price)")
                         .font(.caption)
@@ -76,8 +81,13 @@ struct FullScreenSheet: View {
                         
                     })
                 }
+                
                 .padding()
+                .background(.regularMaterial)
+                
+                
             }
+            .clipShape(RoundedRectangle(cornerRadius: 15))
             .padding()
         })
         
@@ -92,22 +102,22 @@ struct FullScreenSheet: View {
             case "Television":
                 backgroundGradient = LinearGradient(colors: [Color("TVBackground"),Color("TVBackground2") ], startPoint: .leading, endPoint: .trailing)
                 
-                descriptionGradient = LinearGradient(colors: [Color("TVBackground"),Color("TVBackground2") ], startPoint: .leading, endPoint: .trailing)
+                descriptionGradient = LinearGradient(colors: [Color("TVDesc1"),Color("TVDesc2") ], startPoint: .topLeading, endPoint: .bottomTrailing)
                 
             case "Nutcracker":
                 backgroundGradient = LinearGradient(colors: [Color("Nutcracker1"),Color("Nutcracker2"), Color("Nutcracker3") ], startPoint: .leading, endPoint: .trailing)
                 
-                descriptionGradient = LinearGradient(colors: [Color("TVBackground"),Color("TVBackground2") ], startPoint: .leading, endPoint: .trailing)
+                descriptionGradient = LinearGradient(colors: [Color("NutDesc1"),Color("NutDesc2") ], startPoint: .topLeading, endPoint: .bottomTrailing)
                 
             case "Grammy":
                 backgroundGradient = LinearGradient(colors: [Color("Grammy1"),Color("Grammy2"), Color("Grammy3") ], startPoint: .leading, endPoint: .trailing)
                 
-                descriptionGradient = LinearGradient(colors: [Color("TVBackground"),Color("TVBackground2") ], startPoint: .leading, endPoint: .trailing)
+                descriptionGradient = LinearGradient(colors: [Color("GrammyDesc1"),Color("GrammyDesc2") ], startPoint: .topLeading, endPoint: .bottomTrailing)
                 
             case "Teapot":
                 backgroundGradient = LinearGradient(colors: [Color("Tea1"),Color("Tea2"), Color("Tea3") ], startPoint: .leading, endPoint: .trailing)
                 
-                descriptionGradient = LinearGradient(colors: [Color("TVBackground"),Color("TVBackground2") ], startPoint: .leading, endPoint: .trailing)
+                descriptionGradient = LinearGradient(colors: [Color("TeaDesc1"),Color("TeaDesc2") ], startPoint: .topLeading, endPoint: .bottomTrailing)
 
             default:
                 return
@@ -118,5 +128,5 @@ struct FullScreenSheet: View {
 }
 
 #Preview {
-    FullScreenSheet(card: Card(imageName: "Tea", title: "Teapot", price: 499, description: "If you can send us a better teapot, we will pay for it", textColor: .black))
+    FullScreenSheet(card: Card(imageName: "Grammy", title: "Grammy", price: 499, description: "If you can send us a better teapot, we will pay for it", textColor: .black))
 }
