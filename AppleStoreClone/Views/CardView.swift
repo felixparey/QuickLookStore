@@ -15,6 +15,7 @@ struct FlatLinkStyle: ButtonStyle {
 
 struct CardView: View {
     
+    @Environment(\.horizontalSizeClass) private var sizeClass
     @State private var isPresented = false
     @Environment(BackgroundLogic.self) private var sheetsPresented
     var card: Card
@@ -22,52 +23,92 @@ struct CardView: View {
     
     var body: some View {
         
-        Button(action: {
-            isPresented = true
-            sheetsPresented.sheetIsPresented = isPresented
-        }, label: {
+        if sizeClass == .compact{
             
-            ZStack(alignment: .top){
-                Image(card.imageName)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
+            Button(action: {
+                isPresented = true
+                sheetsPresented.sheetIsPresented = isPresented
+            }, label: {
                 
-                HStack {
-                    VStack(alignment: .leading, spacing: 0) {
-                        Text("NOVITÁ")
-                            .font(.caption)
-                            .foregroundStyle(card.textColor)
-                            .opacity(0.7)
-                        Text(card.title)
-                            .foregroundStyle(card.textColor)
-                            .font(.largeTitle)
-                            .fontWeight(.semibold)
-                            
+                ZStack(alignment: .top){
+                    Image(card.imageName)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                    
+                    HStack {
+                        VStack(alignment: .leading, spacing: 0) {
+                            Text("NOVITÁ")
+                                .font(.caption)
+                                .foregroundStyle(card.textColor)
+                                .opacity(0.7)
+                            Text(card.title)
+                                .foregroundStyle(card.textColor)
+                                .font(.largeTitle)
+                                .fontWeight(.semibold)
+                        }
+                        Spacer()
                     }
-                    Spacer()
+                    .padding()
                 }
-                .padding()
+                .overlay(alignment: .bottom) {
+                    BuyView(card: card)
+                }
+            })
+            
+            // End of Button
+            .buttonStyle(FlatLinkStyle())
+            .fullScreenCover(isPresented: $isPresented,onDismiss: {
+                isPresented = false
+                sheetsPresented.sheetIsPresented = isPresented
+            }, content: {
+                FullScreenSheet(card: card)
+            })
+        }else{
+            Button(action: {
+                isPresented = true
+                sheetsPresented.sheetIsPresented = isPresented
+            }, label: {
                 
-            }
-            .overlay(alignment: .bottom) {
-                BuyView(card: card)
-            }
+                ZStack(alignment: .top){
+                    Image(card.imageName)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                    
+                    HStack {
+                        VStack(alignment: .leading, spacing: 0) {
+                            Text("NOVITÁ")
+                                .font(.caption)
+                                .foregroundStyle(card.textColor)
+                                .opacity(0.7)
+                            Text(card.title)
+                                .foregroundStyle(card.textColor)
+                                .font(.largeTitle)
+                                .fontWeight(.semibold)
+                        }
+                        Spacer()
+                    }
+                    .padding()
+                }
+                .overlay(alignment: .bottom) {
+                    BuyView(card: card)
+                }
+            })
             
-            
-        }) // End of Button
-        .buttonStyle(FlatLinkStyle())
-        .fullScreenCover(isPresented: $isPresented,onDismiss: {
-            isPresented = false
-            sheetsPresented.sheetIsPresented = isPresented
-        }, content: {
-            FullScreenSheet(card: card)
-        })
+            // End of Button
+            .buttonStyle(FlatLinkStyle())
+            .sheet(isPresented: $isPresented,onDismiss: {
+                isPresented = false
+                sheetsPresented.sheetIsPresented = isPresented
+            }, content: {
+                FullScreenSheet(card: card)
+            })
+        }
     }
 }
 
 
 #Preview {
-    CardView(card: Card(imageName: "TVCardImage", title: "Television", price: 499, description: "LOL", textColor: .white))
+    CardView(card: Card(imageName: "TVCardImage", title: "Television", price: 499, description: "LOL", textColor: .white, iPadImageName: "TVIPAD"))
         .environment(BackgroundLogic())
     
 }

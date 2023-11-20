@@ -10,11 +10,15 @@ import SwiftUI
 @main
 struct AppleStoreCloneApp: App {
     
+    @Environment(\.horizontalSizeClass) private var sizeClass
     @State private var backgroundLogic = BackgroundLogic()
+    
     var body: some Scene {
-        WindowGroup {
-            ContentView()
-                .environment(backgroundLogic)
+        
+        WindowGroup{
+          MainView()
+        }
+        
         }
     }
-}
+
