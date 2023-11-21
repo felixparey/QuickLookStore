@@ -18,11 +18,11 @@ struct ProductARView: View {
     var body: some View {
             
         if bgLogic.arPresented == true{
-                ARQuickLookView()
+            ARQuickLookView(card: card)
                     .ignoresSafeArea()
                     
             }else{
-                ARQuickLookView()
+                ARQuickLookView(card: card)
                     }
         }
     }

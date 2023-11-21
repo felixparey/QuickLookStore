@@ -105,6 +105,9 @@ struct FullScreenSheet: View {
             .fullScreenCover(isPresented: $arIsPresented, content: {
                // ProductARView(card: card)
                 ProductARView(arPresented: $arIsPresented, card: card)
+                    .onAppear(perform: {
+                        backgroundLogic.arPresented = true
+                    })
                     .overlay(alignment: .top) {
                         CustomPicker()
                             .padding(.horizontal)
@@ -224,7 +227,15 @@ struct FullScreenSheet: View {
                         .padding()
                     })
                     .fullScreenCover(isPresented: $arIsPresented, content: {
-                        ProductARView(arPresented: $arPresented, card: card)
+                       // ProductARView(card: card)
+                        ProductARView(arPresented: $arIsPresented, card: card)
+                            .onAppear(perform: {
+                                backgroundLogic.arPresented = true
+                            })
+                            .overlay(alignment: .top) {
+                                CustomPicker()
+                                    .padding(.horizontal)
+                            }
                     })
                     .statusBarHidden()
                     .onAppear(perform: {

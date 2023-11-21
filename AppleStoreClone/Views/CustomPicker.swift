@@ -11,6 +11,8 @@ struct CustomPicker: View {
     
     @Environment(BackgroundLogic.self) var selected
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.scenePhase) private var scenePhase
+    @Environment(\.colorScheme) private var colorScheme
     
     var body: some View {
         
@@ -25,9 +27,9 @@ struct CustomPicker: View {
                     .foregroundStyle(.primary)
                     .font(.title2)
                     .frame(width: 40, height: 30)
-                    .padding(10)
+                    .padding(7)
                     .background(.thinMaterial)
-                    .clipShape(RoundedRectangle(cornerRadius: 15))
+                    .clipShape(RoundedRectangle(cornerRadius: 12))
             }
             .tint(.primary)
             
@@ -36,27 +38,32 @@ struct CustomPicker: View {
             HStack(spacing: 1){
                 
                 Button{
-                    selected.arPresented = true
+                  
+                        selected.arPresented = true
+                    
+                    
                 }label: {
                     Text("AR")
-                        .frame(width: 60, height: 30)
-                        .padding(10)
-                        .background(selected.arPresented ? .white : Color.clear)
-                        .clipShape(RoundedRectangle(cornerRadius: 15))
+                        .font(.footnote)
+                        .frame(width: 70, height: 30)
+                        .padding(7)
+                        .background(selected.arPresented ? Color("PickerColor") : Color.clear)
+                        .clipShape(RoundedRectangle(cornerRadius: 14))
                 }
                 .foregroundStyle(selected.arPresented ? .blue : .primary)
                 .buttonStyle(FlatLinkStyle())
                 .font(.callout)
                 
                 Button{
-                    selected.arPresented = false
+                        selected.arPresented = false
                 }label: {
                     Text("Object")
-                        .frame(width: 60, height: 30)
+                        .font(.footnote)
+                        .frame(width: 55, height: 30)
                         .padding(.horizontal, 10)
-                        .padding(.vertical, 10)
-                        .background(!selected.arPresented ? Color.white : Color.clear)
-                        .clipShape(RoundedRectangle(cornerRadius: 15))
+                        .padding(7)
+                        .background(!selected.arPresented ? Color("PickerColor") : Color.clear)
+                        .clipShape(RoundedRectangle(cornerRadius: 14))
                     
                 }
                 .buttonStyle(FlatLinkStyle())
@@ -77,11 +84,16 @@ struct CustomPicker: View {
                     .foregroundStyle(.primary)
                     .font(.title2)
                     .frame(width: 40, height: 30)
-                    .padding(10)
+                    .padding(7)
                     .background(.thinMaterial)
-                    .clipShape(RoundedRectangle(cornerRadius: 15))
+                    .clipShape(RoundedRectangle(cornerRadius: 12))
                 }
             .tint(.primary)
+        }
+        .onChange(of: scenePhase) {
+            if scenePhase == .background{
+                selected.arPresented = false
+            }
         }
     }
 }

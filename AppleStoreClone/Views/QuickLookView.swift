@@ -12,6 +12,8 @@ import ARKit
 
 struct ARQuickLookView: UIViewControllerRepresentable {
    // var fileURL: URL // URL to your .usdz file
+    
+    var card: Card
 
     func makeUIViewController(context: Context) -> QLPreviewController {
         let controller = QLPreviewController()
@@ -39,7 +41,7 @@ struct ARQuickLookView: UIViewControllerRepresentable {
         }
 
         func previewController(_ controller: QLPreviewController, previewItemAt index: Int) -> QLPreviewItem {
-            let previewItem = ARQuickLookPreviewItem(fileAt: URL(filePath:  Bundle.main.path(forResource: "TV", ofType: "usdz")!))
+            let previewItem = ARQuickLookPreviewItem(fileAt: URL(filePath:  Bundle.main.path(forResource: "\(parent.card.objectName)", ofType: "usdz")!))
             return previewItem
         }
     }
@@ -74,14 +76,4 @@ struct ARQuickLookView: UIViewControllerRepresentable {
 //            return url as QLPreviewItem
 //        }
 //    }
-//}
-
-struct QuickLookView: View {
-    var body: some View {
-        ARQuickLookView()
-    }
-}
-
-#Preview {
-    QuickLookView()
-}
+//} 
