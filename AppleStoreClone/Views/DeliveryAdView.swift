@@ -15,6 +15,8 @@ struct DeliveryAdView: View {
                     .font(.largeTitle)
                     .scaleEffect(1.1)
                     .offset(y: 3)
+                    .accessibilityHidden(true)
+                
                 VStack(alignment: .leading, content: {
                     Text("Free delivery")
                         .font(.subheadline)
@@ -27,6 +29,8 @@ struct DeliveryAdView: View {
                             .font(.footnote)
                     })
                 })
+                .accessibilityElement(children: .combine)
+                
             }
         }
     }

@@ -16,4 +16,5 @@ struct Card: Identifiable{
     var description: String
     var textColor: Color
     var iPadImageName: String
+    var objectName: String
 }

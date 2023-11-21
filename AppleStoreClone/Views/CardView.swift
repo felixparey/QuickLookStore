@@ -110,7 +110,7 @@ struct CardView: View {
 
 
 #Preview {
-    CardView(card: Card(imageName: "TV", title: "Television", price: 499, description: "LOL", textColor: .white, iPadImageName: "TVIPAD"))
+    CardView(card: Card(imageName: "TV", title: "Television", price: 499, description: "LOL", textColor: .white, iPadImageName: "TVIPAD", objectName: "TV"))
         .environment(BackgroundLogic())
     
 }

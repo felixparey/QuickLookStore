@@ -9,8 +9,10 @@ import SwiftUI
 
 struct FullScreenSheet: View {
     
+    @Environment(BackgroundLogic.self) private var backgroundLogic
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @Environment(\.dismiss) private var isPresented
+    @State private var arIsPresented = false
     @State private var backgroundGradient = LinearGradient(colors: [Color("TVBackground"),Color("TVBackground2") ], startPoint: .leading, endPoint: .trailing)
     @State private var descriptionGradient = LinearGradient(colors: [Color("TVDesc1"),Color("TVDesc2") ], startPoint: .topLeading, endPoint: .bottomTrailing)
     var card: Card
@@ -36,7 +38,8 @@ struct FullScreenSheet: View {
                                 .foregroundStyle(descriptionGradient)
                             
                             Button(action: {
-                                
+                                arIsPresented = true
+                                backgroundLogic.arViewPresented = arIsPresented
                             }, label: {
                                 HStack{
                                     Text("Watch in AR")
@@ -98,11 +101,12 @@ struct FullScreenSheet: View {
                 .clipShape(RoundedRectangle(cornerRadius: 15))
                 .padding()
             })
-            
+            .fullScreenCover(isPresented: $arIsPresented, content: {
+               // ProductARView(card: card)
+                ProductARView(card: card)
+            })
             .background(backgroundGradient)
             .statusBarHidden()
-            
-            
             .onAppear(perform: {
                 
                 switch card.title {
@@ -167,7 +171,8 @@ struct FullScreenSheet: View {
                                     .foregroundStyle(descriptionGradient)
                                 
                                 Button(action: {
-                                    
+                                   arIsPresented = true
+                                    backgroundLogic.arViewPresented = arIsPresented
                                 }, label: {
                                         
                                     HStack{
@@ -213,6 +218,9 @@ struct FullScreenSheet: View {
                         .clipShape(RoundedRectangle(cornerRadius: 15))
                         .padding()
                     })
+                    .fullScreenCover(isPresented: $arIsPresented, content: {
+                        ProductARView(card: card)
+                    })
                     .statusBarHidden()
                     .onAppear(perform: {
                         switch card.title {
@@ -248,5 +256,5 @@ struct FullScreenSheet: View {
 }
 
 #Preview {
-    FullScreenSheet(card: Card(imageName: "Tea", title: "Teapot", price: 499, description: "If you can send us a better teapot, we will pay for it", textColor: .black, iPadImageName: "GrammyIPAD"))
+    FullScreenSheet(card: Card(imageName: "Tea", title: "Teapot", price: 499, description: "If you can send us a better teapot, we will pay for it", textColor: .black, iPadImageName: "GrammyIPAD", objectName: "TV"))
 }

@@ -15,6 +15,8 @@ struct AppleStoreCloneApp: App {
     
     var body: some Scene {
         
+        
+      
         WindowGroup{
             MainView().tint(.accentColor)
         }

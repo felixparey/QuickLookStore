@@ -17,10 +17,17 @@
 		4D78BEC72B03C07600D00A8B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D78BEC62B03C07600D00A8B /* ContentView.swift */; };
 		4D78BEC92B03C07700D00A8B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D78BEC82B03C07700D00A8B /* Assets.xcassets */; };
 		4D78BECC2B03C07700D00A8B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D78BECB2B03C07700D00A8B /* Preview Assets.xcassets */; };
-		4D78BED42B0407CF00D00A8B /* PegasusTrail.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 4D78BED32B0407CF00D00A8B /* PegasusTrail.usdz */; };
 		4D78BED62B0408FF00D00A8B /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D78BED52B0408FF00D00A8B /* Card.swift */; };
 		4D78BED82B04097D00D00A8B /* CardsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D78BED72B04097D00D00A8B /* CardsViewModel.swift */; };
 		4D78BEDA2B040A1F00D00A8B /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D78BED92B040A1F00D00A8B /* CardView.swift */; };
+		4DF1898C2B0BB62B00E3105F /* ProductARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF1898B2B0BB62B00E3105F /* ProductARView.swift */; };
+		4DF1898E2B0BB70100E3105F /* Grammy.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 4DF1898D2B0BB70100E3105F /* Grammy.usdz */; };
+		4DF189902B0BF28500E3105F /* CustomPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF1898F2B0BF28500E3105F /* CustomPicker.swift */; };
+		4DF189922B0C01DC00E3105F /* SceneViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF189912B0C01DC00E3105F /* SceneViews.swift */; };
+		4DF189952B0C05C800E3105F /* TV.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 4DF189942B0C05C800E3105F /* TV.usdz */; };
+		4DF189972B0C05F900E3105F /* Teapot.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 4DF189962B0C05F900E3105F /* Teapot.usdz */; };
+		4DF189992B0C05FE00E3105F /* Nutcracker.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 4DF189982B0C05FE00E3105F /* Nutcracker.usdz */; };
+		4DF1899B2B0CB9AE00E3105F /* QuickLookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF1899A2B0CB9AE00E3105F /* QuickLookView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,10 +42,18 @@
 		4D78BEC62B03C07600D00A8B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4D78BEC82B03C07700D00A8B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D78BECB2B03C07700D00A8B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		4D78BED32B0407CF00D00A8B /* PegasusTrail.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = PegasusTrail.usdz; sourceTree = "<group>"; };
 		4D78BED52B0408FF00D00A8B /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		4D78BED72B04097D00D00A8B /* CardsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewModel.swift; sourceTree = "<group>"; };
 		4D78BED92B040A1F00D00A8B /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		4DF1898B2B0BB62B00E3105F /* ProductARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductARView.swift; sourceTree = "<group>"; };
+		4DF1898D2B0BB70100E3105F /* Grammy.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Grammy.usdz; sourceTree = "<group>"; };
+		4DF1898F2B0BF28500E3105F /* CustomPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPicker.swift; sourceTree = "<group>"; };
+		4DF189912B0C01DC00E3105F /* SceneViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneViews.swift; sourceTree = "<group>"; };
+		4DF189942B0C05C800E3105F /* TV.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; name = TV.usdz; path = AppleStoreClone/Objects/TV.usdz; sourceTree = SOURCE_ROOT; };
+		4DF189962B0C05F900E3105F /* Teapot.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Teapot.usdz; sourceTree = "<group>"; };
+		4DF189982B0C05FE00E3105F /* Nutcracker.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Nutcracker.usdz; sourceTree = "<group>"; };
+		4DF1899A2B0CB9AE00E3105F /* QuickLookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickLookView.swift; sourceTree = "<group>"; };
+		4DF1899C2B0CC0F000E3105F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +71,10 @@
 			isa = PBXGroup;
 			children = (
 				4D78BEC62B03C07600D00A8B /* ContentView.swift */,
+				4DF1898B2B0BB62B00E3105F /* ProductARView.swift */,
+				4DF1899A2B0CB9AE00E3105F /* QuickLookView.swift */,
+				4DF189912B0C01DC00E3105F /* SceneViews.swift */,
+				4DF1898F2B0BF28500E3105F /* CustomPicker.swift */,
 				4D1723F52B07C6590077A98B /* MainView.swift */,
 				4D6944D82B0636F7009973FB /* DeliveryAdView.swift */,
 				4D78BED92B040A1F00D00A8B /* CardView.swift */,
@@ -102,11 +121,12 @@
 		4D78BEC32B03C07600D00A8B /* AppleStoreClone */ = {
 			isa = PBXGroup;
 			children = (
+				4DF1899C2B0CC0F000E3105F /* Info.plist */,
 				4D78BEC42B03C07600D00A8B /* AppleStoreCloneApp.swift */,
 				4D6944D62B056298009973FB /* ViewModels */,
 				4D6944D52B056282009973FB /* Views */,
 				4D6944D72B0562B9009973FB /* Model */,
-				4D78BED32B0407CF00D00A8B /* PegasusTrail.usdz */,
+				4DF189932B0C05B300E3105F /* Objects */,
 				4D78BEC82B03C07700D00A8B /* Assets.xcassets */,
 				4D78BECA2B03C07700D00A8B /* Preview Content */,
 			);
@@ -119,6 +139,17 @@
 				4D78BECB2B03C07700D00A8B /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4DF189932B0C05B300E3105F /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				4DF189942B0C05C800E3105F /* TV.usdz */,
+				4DF1898D2B0BB70100E3105F /* Grammy.usdz */,
+				4DF189982B0C05FE00E3105F /* Nutcracker.usdz */,
+				4DF189962B0C05F900E3105F /* Teapot.usdz */,
+			);
+			path = Objects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,8 +211,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D78BECC2B03C07700D00A8B /* Preview Assets.xcassets in Resources */,
-				4D78BED42B0407CF00D00A8B /* PegasusTrail.usdz in Resources */,
 				4D78BEC92B03C07700D00A8B /* Assets.xcassets in Resources */,
+				4DF189952B0C05C800E3105F /* TV.usdz in Resources */,
+				4DF1898E2B0BB70100E3105F /* Grammy.usdz in Resources */,
+				4DF189972B0C05F900E3105F /* Teapot.usdz in Resources */,
+				4DF189992B0C05FE00E3105F /* Nutcracker.usdz in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,14 +229,18 @@
 				4D78BED82B04097D00D00A8B /* CardsViewModel.swift in Sources */,
 				4D1723F62B07C6590077A98B /* MainView.swift in Sources */,
 				4D78BEC72B03C07600D00A8B /* ContentView.swift in Sources */,
+				4DF189922B0C01DC00E3105F /* SceneViews.swift in Sources */,
 				4D6944D22B056175009973FB /* BackgroundLogic.swift in Sources */,
 				4D6944D92B0636F7009973FB /* DeliveryAdView.swift in Sources */,
+				4DF1899B2B0CB9AE00E3105F /* QuickLookView.swift in Sources */,
 				4D78BED62B0408FF00D00A8B /* Card.swift in Sources */,
 				4D6944D42B05627B009973FB /* FullScreenSheet.swift in Sources */,
 				4D78BEC52B03C07600D00A8B /* AppleStoreCloneApp.swift in Sources */,
 				4D78BEDA2B040A1F00D00A8B /* CardView.swift in Sources */,
+				4DF1898C2B0BB62B00E3105F /* ProductARView.swift in Sources */,
 				4D234B942B0B676200DF7326 /* SidebarContent.swift in Sources */,
 				4D234B922B0B66E800DF7326 /* SideBarItem.swift in Sources */,
+				4DF189902B0BF28500E3105F /* CustomPicker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +377,8 @@
 				DEVELOPMENT_TEAM = QA9FXHQ3QW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AppleStoreClone/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Allow Please!!! ";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -369,6 +409,8 @@
 				DEVELOPMENT_TEAM = QA9FXHQ3QW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AppleStoreClone/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Allow Please!!! ";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
