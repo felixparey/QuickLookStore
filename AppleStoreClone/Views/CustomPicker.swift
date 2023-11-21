@@ -9,97 +9,134 @@ import SwiftUI
 
 struct CustomPicker: View {
     
-    @Binding var selected: Int
+    @Environment(BackgroundLogic.self) var selected
+    @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         
-        HStack(spacing: 1){
+        HStack{
             
             Button{
-                selected = 0
+                selected.arViewPresented = false
+                dismiss.callAsFunction()
+                
             }label: {
-                Text("AR")
-                    .frame(width: 60, height: 30)
+                Image(systemName: "xmark")
+                    .foregroundStyle(.primary)
+                    .font(.title2)
+                    .frame(width: 40, height: 30)
                     .padding(10)
-                    .background(selected == 0 ? .white : Color.clear)
+                    .background(.thinMaterial)
                     .clipShape(RoundedRectangle(cornerRadius: 15))
             }
-            .foregroundStyle(selected == 0 ? .blue : .primary)
-            .buttonStyle(FlatLinkStyle())
-            .font(.callout)
+            .tint(.primary)
             
-            Button{
-                selected = 1
-            }label: {
-                Text("Object")
-                    .frame(width: 60, height: 30)
-                    .padding(.horizontal, 10)
-                    .padding(.vertical, 10)
-                    .background(selected == 1 ? Color.white : Color.clear)
-                    .clipShape(RoundedRectangle(cornerRadius: 15))
+            Spacer()
+            
+            HStack(spacing: 1){
+                
+                Button{
+                    selected.arPresented = true
+                }label: {
+                    Text("AR")
+                        .frame(width: 60, height: 30)
+                        .padding(10)
+                        .background(selected.arPresented ? .white : Color.clear)
+                        .clipShape(RoundedRectangle(cornerRadius: 15))
+                }
+                .foregroundStyle(selected.arPresented ? .blue : .primary)
+                .buttonStyle(FlatLinkStyle())
+                .font(.callout)
+                
+                Button{
+                    selected.arPresented = false
+                }label: {
+                    Text("Object")
+                        .frame(width: 60, height: 30)
+                        .padding(.horizontal, 10)
+                        .padding(.vertical, 10)
+                        .background(!selected.arPresented ? Color.white : Color.clear)
+                        .clipShape(RoundedRectangle(cornerRadius: 15))
                     
+                }
+                .buttonStyle(FlatLinkStyle())
+                .foregroundStyle(!selected.arPresented ? .blue : .primary)
+                .font(.callout)
+                
             }
-            .buttonStyle(FlatLinkStyle())
-            .foregroundStyle(selected == 1 ? .blue : .primary)
-            .font(.callout)
+            .padding(2)
+            .background(.thinMaterial)
+            .clipShape(RoundedRectangle(cornerRadius: 15))
             
+            Spacer()
+            Button{
+                print("lol")
+            }label: {
+                    
+                    Image(systemName: "square.and.arrow.up")
+                    .foregroundStyle(.primary)
+                    .font(.title2)
+                    .frame(width: 40, height: 30)
+                    .padding(10)
+                    .background(.thinMaterial)
+                    .clipShape(RoundedRectangle(cornerRadius: 15))
+                }
+            .tint(.primary)
         }
-        .padding(2)
-        .background(.thinMaterial)
-        .clipShape(RoundedRectangle(cornerRadius: 15))
     }
 }
 
 #Preview {
-    CustomPicker(selected: .constant(1))
+    CustomPicker()
+        .environment(BackgroundLogic())
 }
 
 
-struct CustomOverlay: View {
-    
-    @State private var selected = 0
-    @Environment(\.dismiss) private var dismiss
-    var views = ["AR","Object"]
-    var card: Card
-    
-    var body: some View {
-        
-            HStack{
-                Button{
-                    dismiss.callAsFunction()
-                }label: {
-                    Image(systemName: "xmark")
-                        .foregroundStyle(.primary)
-                        .font(.title2)
-                        .frame(width: 40, height: 30)
-                        .padding(10)
-                        .background(.thinMaterial)
-                        .clipShape(RoundedRectangle(cornerRadius: 15))
-                }
-                .tint(.primary)
-                
-                Spacer()
-                CustomPicker(selected: $selected)
-                Spacer()
-                Button{
-                    
-                }label: {
-                        
-                        Image(systemName: "square.and.arrow.up")
-                            .foregroundStyle(.primary)
-                            .font(.title2)
-                            .frame(width: 40, height: 30)
-                            .padding(10)
-                            .background(.thinMaterial)
-                            .clipShape(RoundedRectangle(cornerRadius: 15))
-                    
-                }
-                .tint(.primary)
-                
-                
-            }
-            .padding(.horizontal)
-        }
-    }
-
-
+//struct CustomOverlay: View {
+//    
+//    @State private var selected = 0
+//    @Environment(\.dismiss) private var dismiss
+//    var views = ["AR","Object"]
+//    var card: Card
+//    
+//    var body: some View {
+//        
+//            HStack{
+//                Button{
+//                    dismiss.callAsFunction()
+//                }label: {
+//                    Image(systemName: "xmark")
+//                        .foregroundStyle(.primary)
+//                        .font(.title2)
+//                        .frame(width: 40, height: 30)
+//                        .padding(10)
+//                        .background(.thinMaterial)
+//                        .clipShape(RoundedRectangle(cornerRadius: 15))
+//                }
+//                .tint(.primary)
+//                
+//                Spacer()
+//                CustomPicker(selected: $selected)
+//                Spacer()
+//                Button{
+//                    
+//                }label: {
+//                        
+//                        Image(systemName: "square.and.arrow.up")
+//                            .foregroundStyle(.primary)
+//                            .font(.title2)
+//                            .frame(width: 40, height: 30)
+//                            .padding(10)
+//                            .background(.thinMaterial)
+//                            .clipShape(RoundedRectangle(cornerRadius: 15))
+//                    
+//                }
+//                .tint(.primary)
+//                
+//                
+//            }
+//            .padding(.horizontal)
+//        }
+//    }
+//
+//

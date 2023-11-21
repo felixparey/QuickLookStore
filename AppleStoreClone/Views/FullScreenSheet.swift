@@ -13,6 +13,7 @@ struct FullScreenSheet: View {
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @Environment(\.dismiss) private var isPresented
     @State private var arIsPresented = false
+    @State private var arPresented = true
     @State private var backgroundGradient = LinearGradient(colors: [Color("TVBackground"),Color("TVBackground2") ], startPoint: .leading, endPoint: .trailing)
     @State private var descriptionGradient = LinearGradient(colors: [Color("TVDesc1"),Color("TVDesc2") ], startPoint: .topLeading, endPoint: .bottomTrailing)
     var card: Card
@@ -103,7 +104,11 @@ struct FullScreenSheet: View {
             })
             .fullScreenCover(isPresented: $arIsPresented, content: {
                // ProductARView(card: card)
-                ProductARView(card: card)
+                ProductARView(arPresented: $arIsPresented, card: card)
+                    .overlay(alignment: .top) {
+                        CustomPicker()
+                            .padding(.horizontal)
+                    }
             })
             .background(backgroundGradient)
             .statusBarHidden()
@@ -219,7 +224,7 @@ struct FullScreenSheet: View {
                         .padding()
                     })
                     .fullScreenCover(isPresented: $arIsPresented, content: {
-                        ProductARView(card: card)
+                        ProductARView(arPresented: $arPresented, card: card)
                     })
                     .statusBarHidden()
                     .onAppear(perform: {
@@ -255,6 +260,6 @@ struct FullScreenSheet: View {
     }
 }
 
-#Preview {
-    FullScreenSheet(card: Card(imageName: "Tea", title: "Teapot", price: 499, description: "If you can send us a better teapot, we will pay for it", textColor: .black, iPadImageName: "GrammyIPAD", objectName: "TV"))
-}
+//#Preview {
+//    FullScreenSheet(card: Card(imageName: "Tea", title: "Teapot", price: 499, description: "If you can send us a better teapot, we will pay for it", textColor: .black, iPadImageName: "GrammyIPAD", objectName: "TV"))
+//}

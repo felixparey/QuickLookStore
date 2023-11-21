@@ -9,108 +9,21 @@ import SwiftUI
 import RealityKit
 
 struct ProductARView: View {
-    @State private var selected = 0
+    @Environment(BackgroundLogic.self) private var bgLogic
+    @Binding var arPresented : Bool
     @Environment(\.dismiss) private var dismiss
     var views = ["AR","Object"]
     var card: Card
     
     var body: some View {
-        
-        GeometryReader{ geometry in
             
-            if selected == 0{
+        if bgLogic.arPresented == true{
                 ARQuickLookView()
                     .ignoresSafeArea()
-                    .overlay(alignment: .top) {
-                        HStack{
-                            Button{
-                                dismiss.callAsFunction()
-                            }label: {
-                                Image(systemName: "xmark")
-                                    .foregroundStyle(.primary)
-                                    .font(.title2)
-                                    .frame(width: 40, height: 30)
-                                    .padding(10)
-                                    .background(.thinMaterial)
-                                    .clipShape(RoundedRectangle(cornerRadius: 15))
-                            }
-                            .tint(.primary)
-                            
-                            Spacer()
-                            //                        HStack{
-                            //                            Text("AR")
-                            //                            Text("Object")
-                            //                        }
-                            //                        .padding()
-                            //                        .foregroundStyle(.white)
-                            //                        .background(.thinMaterial)
-                            //                        .clipShape(RoundedRectangle(cornerRadius: 15))
-                            
-                            CustomPicker(selected: $selected)
-                            
-                            
-                            Spacer()
-                            Button{
-                                
-                            }label: {
-                                    
-                                    Image(systemName: "square.and.arrow.up")
-                                        .foregroundStyle(.primary)
-                                        .font(.title2)
-                                        .frame(width: 40, height: 30)
-                                        .padding(10)
-                                        .background(.thinMaterial)
-                                        .clipShape(RoundedRectangle(cornerRadius: 15))
-                                
-                            }
-                            .tint(.primary)
-                            
-                            
-                        }
-                        .padding(.horizontal)
-                    }
+                    
             }else{
-                
                 ARQuickLookView()
-                    .overlay(alignment: .top) {
-                        HStack{
-                            Button{
-                                dismiss.callAsFunction()
-                            }label: {
-                                Image(systemName: "xmark")
-                                    .foregroundStyle(.primary)
-                                    .font(.title2)
-                                    .frame(width: 40, height: 30)
-                                    .padding(10)
-                                    .background(.thinMaterial)
-                                    .clipShape(RoundedRectangle(cornerRadius: 15))
-                            }
-                            .tint(.primary)
-                            
-                            Spacer()
-                            CustomPicker(selected: $selected)
-                            Spacer()
-                            Button{
-                                print("lol")
-                            }label: {
-                                    
-                                    Image(systemName: "square.and.arrow.up")
-                                    .foregroundStyle(.primary)
-                                    .font(.title2)
-                                    .frame(width: 40, height: 30)
-                                    .padding(10)
-                                    .background(.thinMaterial)
-                                    .clipShape(RoundedRectangle(cornerRadius: 15))
-                                }
-                            .tint(.primary)
-                            }
-                        .padding(.horizontal)
-                            
-                            
-                        }
-                        
                     }
-            }
         }
     }
 
