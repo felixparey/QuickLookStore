@@ -44,9 +44,10 @@ struct FullScreenSheet: View {
                                 backgroundLogic.arViewPresented = arIsPresented
                             }, label: {
                                 HStack{
-                                    Text("Watch in AR")
+                                    Text("View in AR")
                                         .bold()
-                                    Image(systemName: "cube.transparent")
+                                    Image("AugmentedCube")
+                                        .fontWeight(.medium)
                                 }
                                 .underline()
                                 .tint(card.title == "Teapot" ? .accentColor : .white)
@@ -184,10 +185,10 @@ struct FullScreenSheet: View {
                                 }, label: {
                                     
                                     HStack{
-                                        Text("Watch in AR")
+                                        Text("View in AR")
                                             .bold()
                                         Image("AugmentedCube")
-                                            .fontWeight(.semibold)
+                                            .fontWeight(.medium)
                                     }
                                     .underline()
                                     .tint(card.title == "Teapot" ? .black : .white)

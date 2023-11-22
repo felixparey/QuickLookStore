@@ -58,19 +58,6 @@ struct ContentView: View {
                     .scrollTargetBehavior(.viewAligned)
                     .navigationTitle(Text("Shop"))
                     
-                    //Profle Image in Toolbar
-                    .toolbar{
-                        ToolbarItem(placement: .principal) {
-                            HStack {
-                                Spacer()
-                                Image("ProfileImage")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .clipShape(Circle())
-                            }
-                        }
-                        
-                    }
                     Spacer()
                 }
             }
