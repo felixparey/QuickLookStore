@@ -12,9 +12,13 @@ import SwiftUI
 @Observable
 class BackgroundLogic{
     
-    var backgroundGradient = LinearGradient(colors: [Color("TVBackground"),Color("TVBackground2") ], startPoint: .leading, endPoint: .trailing)
+    //Keeps track of whether the FullScreenCover / Sheet is presented
     var sheetIsPresented = false
+    
+    //Keeps track of whether the AR / Object View is presented
     var arViewPresented = false
+    
+    //Keeps track of wheteher the AR or Object Mode is currently selected
     var arPresented = true
     
 }

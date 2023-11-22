@@ -9,6 +9,7 @@ import SwiftUI
 
 struct FullScreenSheet: View {
     
+    //To handle if the AR View gets loaded
     @Environment(BackgroundLogic.self) private var backgroundLogic
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @Environment(\.dismiss) private var isPresented
@@ -55,6 +56,7 @@ struct FullScreenSheet: View {
                         .offset(y: 50)
                         .padding()
                     })
+                    //Close button
                     .overlay(alignment: .topTrailing) {
                         Button(action: {
                             isPresented.callAsFunction()
@@ -72,49 +74,46 @@ struct FullScreenSheet: View {
             }
             .ignoresSafeArea()
             .overlay(alignment: .bottom, content: {
-                ZStack {
-                    //                RoundedRectangle(cornerRadius: 15)
-                    //                    .foregroundStyle(.regularMaterial)
-                    //                    .frame(height: 70)
-                    HStack {
-                        Text("From $\(card.price, specifier: "%.0f") or $\(card.price/24, specifier: "%.2f")/mo. for 24 mo.*")
-                            .font(.caption)
-                            .foregroundStyle(.primary)
-                        Spacer()
-                        Button(action: {}, label: {
-                            Text("BUY")
-                                .font(.subheadline)
-                                .fontWeight(.bold)
-                                .padding(.horizontal, 10)
-                                .padding(.vertical, 5)
-                                .background(RoundedRectangle(cornerRadius: 20)
-                                    .foregroundStyle(.thinMaterial))
-                            
-                            
-                        })
-                    }
-                    
-                    .padding()
-                    .background(.regularMaterial)
-                    
-                    
+                
+                //Slightly changed BuyView
+                HStack {
+                    Text("From $\(card.price, specifier: "%.0f") or $\(card.price/24, specifier: "%.2f")/mo. for 24 mo.*")
+                        .font(.caption)
+                        .foregroundStyle(.primary)
+                    Spacer()
+                    Button(action: {}, label: {
+                        Text("BUY")
+                            .font(.subheadline)
+                            .fontWeight(.bold)
+                            .padding(.horizontal, 10)
+                            .padding(.vertical, 5)
+                            .background(RoundedRectangle(cornerRadius: 20)
+                                .foregroundStyle(.thinMaterial))
+                        
+                        
+                    })
                 }
+                .padding()
+                .background(.regularMaterial)
                 .clipShape(RoundedRectangle(cornerRadius: 15))
                 .padding()
             })
             .fullScreenCover(isPresented: $arIsPresented, content: {
-               // ProductARView(card: card)
-                ProductARView(arPresented: $arIsPresented, card: card)
+                
+                ProductARView(card: card)
+                
                     .onAppear(perform: {
                         backgroundLogic.arPresented = true
                     })
                     .overlay(alignment: .top) {
-                        CustomPicker()
+                        CustomTopBar()
                             .padding(.horizontal)
                     }
             })
             .background(backgroundGradient)
             .statusBarHidden()
+            
+            //Switch Statement to change Colors
             .onAppear(perform: {
                 
                 switch card.title {
@@ -151,9 +150,9 @@ struct FullScreenSheet: View {
                     ScrollView {
                         ZStack(alignment: .bottom) {
                             Image(card.iPadImageName)
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                            
                                 .overlay(alignment: .topTrailing) {
                                     Button(action: {
                                         isPresented.callAsFunction()
@@ -166,7 +165,7 @@ struct FullScreenSheet: View {
                                     })
                                     .buttonStyle(PlainButtonStyle())
                                     .padding(20)
-                            }
+                                }
                             VStack {
                                 Text(card.title)
                                     .foregroundStyle(.white)
@@ -178,11 +177,12 @@ struct FullScreenSheet: View {
                                     .multilineTextAlignment(.center)
                                     .foregroundStyle(descriptionGradient)
                                 
+                                //Triggers Product View
                                 Button(action: {
-                                   arIsPresented = true
+                                    arIsPresented = true
                                     backgroundLogic.arViewPresented = arIsPresented
                                 }, label: {
-                                        
+                                    
                                     HStack{
                                         Text("Watch in AR")
                                             .bold()
@@ -201,44 +201,53 @@ struct FullScreenSheet: View {
                     }
                     .ignoresSafeArea()
                     .overlay(alignment: .bottom, content: {
-                        ZStack {
-                            HStack {
-                                Text("From $\(card.price, specifier: "%.0f") or $\(card.price/24, specifier: "%.2f")/mo. for 24 mo.*")
-                                    .font(.caption)
-                                    .foregroundStyle(.primary)
-                                Spacer()
-                                Button(action: {}, label: {
-                                    Text("BUY")
-                                        .font(.subheadline)
-                                        .fontWeight(.bold)
-                                        .padding(.horizontal, 10)
-                                        .padding(.vertical, 5)
-                                        .background(RoundedRectangle(cornerRadius: 20)
-                                            .foregroundStyle(.thinMaterial))
-                                })
-                            }
-                            
-                            .padding()
-                            .background(.regularMaterial)
-                            
-                            
+                        
+                        //Slightly changed BuyView
+                        HStack {
+                            Text("From $\(card.price, specifier: "%.0f") or $\(card.price/24, specifier: "%.2f")/mo. for 24 mo.*")
+                                .font(.caption)
+                                .foregroundStyle(.primary)
+                            Spacer()
+                            Button(action: {}, label: {
+                                Text("BUY")
+                                    .font(.subheadline)
+                                    .fontWeight(.bold)
+                                    .padding(.horizontal, 10)
+                                    .padding(.vertical, 5)
+                                    .background(RoundedRectangle(cornerRadius: 20)
+                                        .foregroundStyle(.thinMaterial))
+                            })
                         }
+                        .padding()
+                        .background(.regularMaterial)
                         .clipShape(RoundedRectangle(cornerRadius: 15))
                         .padding()
                     })
+                    
+                    //Displays the Product View with AR
                     .fullScreenCover(isPresented: $arIsPresented, content: {
-                       // ProductARView(card: card)
-                        ProductARView(arPresented: $arIsPresented, card: card)
+                        // ProductARView(card: card)
+                        ProductARView(card: card)
+                        
+                        //Sets the selected Category inside the AR View to AR
                             .onAppear(perform: {
                                 backgroundLogic.arPresented = true
                             })
+                        
+                        //custom Top Bar
                             .overlay(alignment: .top) {
-                                CustomPicker()
+                                CustomTopBar()
                                     .padding(.horizontal)
                             }
                     })
+                    
+                    //Hides the status bar on top
                     .statusBarHidden()
+                    
+                    //Switch statement
                     .onAppear(perform: {
+                        
+                        //Decides based on which card is presented which Background and Text Gradient it should display
                         switch card.title {
                             
                         case "Television":
@@ -264,7 +273,7 @@ struct FullScreenSheet: View {
                         default:
                             return
                         }
-                })
+                    })
                 }
             }
         }

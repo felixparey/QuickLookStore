@@ -10,8 +10,10 @@ import Observation
 import SwiftUI
 
 class CardsViewModel{
-    let cards: [Card] = [
-        
+    
+    // Creates the individual Cards
+    let cards: [Card] =
+    [
         Card(imageName: "TV", title: "Television", price: 499, description: "Perfect for watching old TV Shows.", textColor: .white, iPadImageName: "TVIPAD", objectName: "TV"),
         Card(imageName: "Nutcracker", title: "Nutcracker", price: 29, description: "Cracking the nuts you need to be cracked", textColor: .white, iPadImageName: "NutcrackerIPAD", objectName: "Nutcracker"),
         Card(imageName: "Grammy", title: "Grammy", price: 899, description: "For listening to music in the best possible way.", textColor: .white, iPadImageName: "GrammyIPAD", objectName: "Grammy"),

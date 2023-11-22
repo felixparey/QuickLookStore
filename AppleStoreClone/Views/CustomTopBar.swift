@@ -7,19 +7,24 @@
 
 import SwiftUI
 
-struct CustomPicker: View {
+struct CustomTopBar: View {
+    
+    //Checks if the Scene is in the background or active
+    @Environment(\.scenePhase) private var scenePhase
     
     @Environment(BackgroundLogic.self) var selected
     @Environment(\.dismiss) private var dismiss
-    @Environment(\.scenePhase) private var scenePhase
-    @Environment(\.colorScheme) private var colorScheme
+    
+ 
     
     var body: some View {
         
         HStack{
             
+            //Dismiss button
             Button{
-                selected.arViewPresented = false
+                
+                //Dismisses the AR View including the TopBar
                 dismiss.callAsFunction()
                 
             }label: {
@@ -35,12 +40,14 @@ struct CustomPicker: View {
             
             Spacer()
             
+            //Custom Picker
             HStack(spacing: 1){
                 
+                //Left side of custom Picker (AR)
                 Button{
                   
+                        //Selects AR as the active mode
                         selected.arPresented = true
-                    
                     
                 }label: {
                     Text("AR")
@@ -51,9 +58,10 @@ struct CustomPicker: View {
                         .clipShape(RoundedRectangle(cornerRadius: 14))
                 }
                 .foregroundStyle(selected.arPresented ? .blue : .primary)
-                .buttonStyle(FlatLinkStyle())
+                .buttonStyle(FlatButtonStyle())
                 .font(.callout)
                 
+                //Right side of custom Picker (Object)
                 Button{
                         selected.arPresented = false
                 }label: {
@@ -66,7 +74,7 @@ struct CustomPicker: View {
                         .clipShape(RoundedRectangle(cornerRadius: 14))
                     
                 }
-                .buttonStyle(FlatLinkStyle())
+                .buttonStyle(FlatButtonStyle())
                 .foregroundStyle(!selected.arPresented ? .blue : .primary)
                 .font(.callout)
                 
@@ -76,6 +84,8 @@ struct CustomPicker: View {
             .clipShape(RoundedRectangle(cornerRadius: 15))
             
             Spacer()
+            
+            //Share Button
             Button{
                 print("lol")
             }label: {
@@ -90,6 +100,7 @@ struct CustomPicker: View {
                 }
             .tint(.primary)
         }
+        //If you close the app and repoen it, it switches the highlighted button to object
         .onChange(of: scenePhase) {
             if scenePhase == .background{
                 selected.arPresented = false
@@ -99,7 +110,7 @@ struct CustomPicker: View {
 }
 
 #Preview {
-    CustomPicker()
+    CustomTopBar()
         .environment(BackgroundLogic())
 }
 

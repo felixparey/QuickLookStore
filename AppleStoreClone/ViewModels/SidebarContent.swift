@@ -9,6 +9,8 @@ import Foundation
 import SwiftUI
 
 struct SidebarContent{
+    
+    //Sidebar Items in the main section
     var mainItems = [
         SideBarItem(text: "Shop", icon: "macbook.and.iphone"),
         SideBarItem(text: "Sessions", icon: "calendar"),
@@ -18,6 +20,7 @@ struct SidebarContent{
         SideBarItem(text: "Your Saves", icon: "bookmark")
     ]
     
+    //Sidebar items in the 2nd section
     var productItems = [
         SideBarItem(text: "Mac", icon: "desktopcomputer"),
         SideBarItem(text: "iPhone", icon: "iphone.gen3"),

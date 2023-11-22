@@ -9,30 +9,39 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @Environment(\.horizontalSizeClass) private var sizeClass
     var cardsViewModel = CardsViewModel()
     
     var body: some View {
         NavigationStack{
             ScrollView(){
+                
                 Divider().padding(.horizontal)
-                    HStack {
-                        DeliveryAdView()
-                            .padding(.top, 5)
+                
+                // Delivery Ad View with padding etc.
+                HStack {
+                    DeliveryAdView()
+                        .padding(.top, 5)
                         .padding(.bottom, 10)
                         .padding(.horizontal)
-                        Spacer()
-                    }
+                    Spacer()
+                }
                 
                 Divider()
+                
                 VStack(alignment: .leading, spacing: 0) {
                     
+                    //Section Title
                     Text("The latest")
                         .font(.title)
                         .bold()
                         .padding([.top,.leading])
+                    
+                    //Horizontal ScrollView containing the cards
                     ScrollView(.horizontal){
+                        
                         HStack(spacing: 15) {
+                            
+                            //Displaying all the cards
                             ForEach(cardsViewModel.cards){ card in
                                 
                                 CardView(card: card)
@@ -45,22 +54,23 @@ struct ContentView: View {
                         .padding(.bottom, 20)
                         .scrollTargetLayout()
                     }
-                    // .padding(.vertical, 40)
                     .scrollIndicators(.hidden)
                     .scrollTargetBehavior(.viewAligned)
                     .navigationTitle(Text("Shop"))
-                    //                .toolbar{
-                    //                    ToolbarItem(placement: .principal) {
-                    //                        HStack {
-                    //                            Spacer()
-                    //                            Image("ProfileImage")
-                    //                                .resizable()
-                    //                                .aspectRatio(contentMode: .fit)
-                    //                                .clipShape(Circle())
-                    //                        }
-                    //                    }
-                    //
-                    //                }
+                    
+                    //Profle Image in Toolbar
+                    .toolbar{
+                        ToolbarItem(placement: .principal) {
+                            HStack {
+                                Spacer()
+                                Image("ProfileImage")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .clipShape(Circle())
+                            }
+                        }
+                        
+                    }
                     Spacer()
                 }
             }

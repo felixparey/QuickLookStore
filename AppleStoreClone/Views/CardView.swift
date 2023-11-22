@@ -7,11 +7,7 @@
 
 import SwiftUI
 
-struct FlatLinkStyle: ButtonStyle {
-    func makeBody(configuration: Configuration) -> some View {
-        configuration.label
-    }
-}
+
 
 struct CardView: View {
     
@@ -19,7 +15,6 @@ struct CardView: View {
     @State private var isPresented = false
     @Environment(BackgroundLogic.self) private var sheetsPresented
     var card: Card
-    @State private var scale: CGFloat = 1.0
     
     var body: some View {
         
@@ -28,6 +23,7 @@ struct CardView: View {
             Button(action: {
                 isPresented = true
                 sheetsPresented.sheetIsPresented = isPresented
+                
             }, label: {
                 
                 ZStack(alignment: .top){
@@ -52,12 +48,15 @@ struct CardView: View {
                 }
                 .overlay(alignment: .bottom) {
                     BuyView(card: card)
+                        
                 }
             })
             .accessibilityLabel("Find out more about \(card.title)")
             
             // End of Button
-            .buttonStyle(FlatLinkStyle())
+            .buttonStyle(FlatButtonStyle())
+            
+            //Presents fullScreenCover with Details
             .fullScreenCover(isPresented: $isPresented,onDismiss: {
                 isPresented = false
                 sheetsPresented.sheetIsPresented = isPresented
@@ -95,9 +94,9 @@ struct CardView: View {
                 }
             })
             .accessibilityLabel("Find out more about \(card.title)")
+            .buttonStyle(FlatButtonStyle())
             
-            // End of Button
-            .buttonStyle(FlatLinkStyle())
+            //Presents fullScreenCover with Details
             .fullScreenCover(isPresented: $isPresented,onDismiss: {
                 isPresented = false
                 sheetsPresented.sheetIsPresented = isPresented
@@ -115,6 +114,7 @@ struct CardView: View {
     
 }
 
+//Overlay on the bottom
 struct BuyView: View {
     
     var card : Card
@@ -128,6 +128,7 @@ struct BuyView: View {
                 Text("From $\(card.price, specifier: "%.0f") or $\(card.price/24, specifier: "%.2f")/mo. for 24 mo.*")
                     .font(.caption)
                     .foregroundStyle(.black)
+                    
                 Spacer()
                 Button(action: {}, label: {
                     Text("BUY")
@@ -146,5 +147,12 @@ struct BuyView: View {
             .background(.white)
             
         }
+    }
+}
+
+//Button Style that removes the click animation
+struct FlatButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
     }
 }

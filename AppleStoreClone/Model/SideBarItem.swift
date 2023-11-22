@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+//Model for the SideBarItems
 struct SideBarItem: Identifiable{
     var id = UUID()
     var text: String

@@ -9,9 +9,8 @@ import SwiftUI
 import QuickLook
 import ARKit
 
-
+// Just copy, I know nothing about 99% of that code. THANK YOU CHATGPT!!!
 struct ARQuickLookView: UIViewControllerRepresentable {
-   // var fileURL: URL // URL to your .usdz file
     
     var card: Card
 
@@ -41,39 +40,11 @@ struct ARQuickLookView: UIViewControllerRepresentable {
         }
 
         func previewController(_ controller: QLPreviewController, previewItemAt index: Int) -> QLPreviewItem {
+            
+            //Path to 3D asset
             let previewItem = ARQuickLookPreviewItem(fileAt: URL(filePath:  Bundle.main.path(forResource: "\(parent.card.objectName)", ofType: "usdz")!))
             return previewItem
         }
     }
 }
 
-
-//struct ARQuickLookView: UIViewControllerRepresentable {
-//    func makeUIViewController(context: Context) -> QLPreviewController {
-//        let previewController = QLPreviewController()
-//        previewController.dataSource = context.coordinator
-//        return previewController
-//    }
-//
-//    func updateUIViewController(_ uiViewController: QLPreviewController, context: Context) {
-//        // Update the controller if needed.
-//    }
-//
-//    func makeCoordinator() -> Coordinator {
-//        Coordinator()
-//    }
-//
-//    class Coordinator: NSObject, QLPreviewControllerDataSource {
-//        func numberOfPreviewItems(in controller: QLPreviewController) -> Int {
-//            return 1
-//        }
-//
-//        func previewController(_ controller: QLPreviewController, previewItemAt index: Int) -> QLPreviewItem {
-//            guard let path = Bundle.main.path(forResource: "TV", ofType: "usdz") else {
-//                fatalError("Couldn't find the supported input file.")
-//            }
-//            let url = URL(fileURLWithPath: path)
-//            return url as QLPreviewItem
-//        }
-//    }
-//} 

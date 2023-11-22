@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+//Model for the Cards
 struct Card: Identifiable{
     var id = UUID()
     var imageName: String

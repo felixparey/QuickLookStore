@@ -9,15 +9,15 @@ import SwiftUI
 
 
 struct MainView: View {
+    
     @State private var backgroundLogic = BackgroundLogic()
     @Environment(\.horizontalSizeClass) private var sizeClass
     @State private var isExpanded = true
-    
     var sideBarContent = SidebarContent()
     
     var body: some View {
         
-        
+        //Handles if it shows TabBar (iPhone) or SideBar (iPad)
         if sizeClass == .compact{
             TabView{
                 ContentView()

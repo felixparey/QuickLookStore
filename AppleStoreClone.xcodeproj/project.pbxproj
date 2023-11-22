@@ -22,8 +22,7 @@
 		4D78BEDA2B040A1F00D00A8B /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D78BED92B040A1F00D00A8B /* CardView.swift */; };
 		4DF1898C2B0BB62B00E3105F /* ProductARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF1898B2B0BB62B00E3105F /* ProductARView.swift */; };
 		4DF1898E2B0BB70100E3105F /* Grammy.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 4DF1898D2B0BB70100E3105F /* Grammy.usdz */; };
-		4DF189902B0BF28500E3105F /* CustomPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF1898F2B0BF28500E3105F /* CustomPicker.swift */; };
-		4DF189922B0C01DC00E3105F /* SceneViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF189912B0C01DC00E3105F /* SceneViews.swift */; };
+		4DF189902B0BF28500E3105F /* CustomTopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF1898F2B0BF28500E3105F /* CustomTopBar.swift */; };
 		4DF189952B0C05C800E3105F /* TV.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 4DF189942B0C05C800E3105F /* TV.usdz */; };
 		4DF189972B0C05F900E3105F /* Teapot.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 4DF189962B0C05F900E3105F /* Teapot.usdz */; };
 		4DF189992B0C05FE00E3105F /* Nutcracker.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 4DF189982B0C05FE00E3105F /* Nutcracker.usdz */; };
@@ -47,8 +46,7 @@
 		4D78BED92B040A1F00D00A8B /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		4DF1898B2B0BB62B00E3105F /* ProductARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductARView.swift; sourceTree = "<group>"; };
 		4DF1898D2B0BB70100E3105F /* Grammy.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Grammy.usdz; sourceTree = "<group>"; };
-		4DF1898F2B0BF28500E3105F /* CustomPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPicker.swift; sourceTree = "<group>"; };
-		4DF189912B0C01DC00E3105F /* SceneViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneViews.swift; sourceTree = "<group>"; };
+		4DF1898F2B0BF28500E3105F /* CustomTopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTopBar.swift; sourceTree = "<group>"; };
 		4DF189942B0C05C800E3105F /* TV.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; name = TV.usdz; path = AppleStoreClone/Objects/TV.usdz; sourceTree = SOURCE_ROOT; };
 		4DF189962B0C05F900E3105F /* Teapot.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Teapot.usdz; sourceTree = "<group>"; };
 		4DF189982B0C05FE00E3105F /* Nutcracker.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Nutcracker.usdz; sourceTree = "<group>"; };
@@ -73,8 +71,7 @@
 				4D78BEC62B03C07600D00A8B /* ContentView.swift */,
 				4DF1898B2B0BB62B00E3105F /* ProductARView.swift */,
 				4DF1899A2B0CB9AE00E3105F /* QuickLookView.swift */,
-				4DF189912B0C01DC00E3105F /* SceneViews.swift */,
-				4DF1898F2B0BF28500E3105F /* CustomPicker.swift */,
+				4DF1898F2B0BF28500E3105F /* CustomTopBar.swift */,
 				4D1723F52B07C6590077A98B /* MainView.swift */,
 				4D6944D82B0636F7009973FB /* DeliveryAdView.swift */,
 				4D78BED92B040A1F00D00A8B /* CardView.swift */,
@@ -229,7 +226,6 @@
 				4D78BED82B04097D00D00A8B /* CardsViewModel.swift in Sources */,
 				4D1723F62B07C6590077A98B /* MainView.swift in Sources */,
 				4D78BEC72B03C07600D00A8B /* ContentView.swift in Sources */,
-				4DF189922B0C01DC00E3105F /* SceneViews.swift in Sources */,
 				4D6944D22B056175009973FB /* BackgroundLogic.swift in Sources */,
 				4D6944D92B0636F7009973FB /* DeliveryAdView.swift in Sources */,
 				4DF1899B2B0CB9AE00E3105F /* QuickLookView.swift in Sources */,
@@ -240,7 +236,7 @@
 				4DF1898C2B0BB62B00E3105F /* ProductARView.swift in Sources */,
 				4D234B942B0B676200DF7326 /* SidebarContent.swift in Sources */,
 				4D234B922B0B66E800DF7326 /* SideBarItem.swift in Sources */,
-				4DF189902B0BF28500E3105F /* CustomPicker.swift in Sources */,
+				4DF189902B0BF28500E3105F /* CustomTopBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
