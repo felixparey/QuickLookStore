@@ -45,9 +45,17 @@ struct ContentView: View {
                             ForEach(cardsViewModel.cards){ card in
                                 
                                 CardView(card: card)
+                                    .accessibilitySortPriority(1)
+                                    
+                                    .overlay(alignment: .bottom, content: {
+                                        BuyView(card: card)
+                                            .accessibilitySortPriority(-1)
+                                            
+                                    })
                                     .clipShape(RoundedRectangle(cornerRadius: 15))
                                     .shadow(radius: 8,y: 10)
                                     .frame(width: 320)
+                                    .accessibilityElement(children: .contain)
                             }
                         }
                         .padding(20)

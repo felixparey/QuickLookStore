@@ -27,17 +27,21 @@ struct FullScreenSheet: View {
                 Image(card.imageName)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
+                    .accessibilityHidden(true)
                     .overlay(alignment: .bottom, content: {
                         VStack {
-                            Text(card.title)
-                                .foregroundStyle(.white)
-                                .font(.title)
-                                .bold()
-                            Text(card.description)
-                                .font(.largeTitle)
-                                .bold()
-                                .multilineTextAlignment(.center)
-                                .foregroundStyle(descriptionGradient)
+                            Group{
+                                Text(card.title)
+                                    .foregroundStyle(.white)
+                                    .font(.title)
+                                    .bold()
+                                Text(card.description)
+                                    .font(.largeTitle)
+                                    .bold()
+                                    .multilineTextAlignment(.center)
+                                    .foregroundStyle(descriptionGradient)
+                                
+                            }
                             
                             Button(action: {
                                 arIsPresented = true
@@ -53,9 +57,13 @@ struct FullScreenSheet: View {
                                 .tint(card.title == "Teapot" ? .accentColor : .white)
                                 
                             })
+                            .accessibilityRemoveTraits(.isButton)
+                            .accessibilityLabel("View in Augmented Reality")
                         }
                         .offset(y: 50)
                         .padding()
+                        .accessibilityElement(children: .combine)
+                        .accessibilityAddTraits(.isButton)
                     })
                     //Close button
                     .overlay(alignment: .topTrailing) {
@@ -68,6 +76,7 @@ struct FullScreenSheet: View {
                                 .padding(6)
                                 .background(Circle().opacity(0.2))
                         })
+                        .accessibilitySortPriority(6)
                         .buttonStyle(PlainButtonStyle())
                         .padding(20)
                     }
@@ -81,6 +90,7 @@ struct FullScreenSheet: View {
                     Text("From $\(card.price, specifier: "%.0f") or $\(card.price/24, specifier: "%.2f")/mo. for 24 mo.*")
                         .font(.caption)
                         .foregroundStyle(.primary)
+                        .accessibilityLabel("From $\(card.price, specifier: "%.0f") or $\(card.price/24, specifier: "%.2f")per month for 24 months.*")
                     Spacer()
                     Button(action: {}, label: {
                         Text("BUY")
@@ -98,6 +108,7 @@ struct FullScreenSheet: View {
                 .background(.regularMaterial)
                 .clipShape(RoundedRectangle(cornerRadius: 15))
                 .padding()
+                .accessibilitySortPriority(-1)
             })
             .fullScreenCover(isPresented: $arIsPresented, content: {
                 
@@ -281,6 +292,7 @@ struct FullScreenSheet: View {
     }
 }
 
-//#Preview {
-//    FullScreenSheet(card: Card(imageName: "Tea", title: "Teapot", price: 499, description: "If you can send us a better teapot, we will pay for it", textColor: .black, iPadImageName: "GrammyIPAD", objectName: "TV"))
-//}
+#Preview {
+    FullScreenSheet(card: Card(imageName: "Tea", title: "Teapot", price: 499, description: "If you can send us a better teapot, we will pay for it", textColor: .black, iPadImageName: "GrammyIPAD", objectName: "TV"))
+        .environment(BackgroundLogic())
+}

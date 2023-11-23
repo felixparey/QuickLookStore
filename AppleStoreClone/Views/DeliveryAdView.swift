@@ -24,14 +24,18 @@ struct DeliveryAdView: View {
                 Text("Or pick up available items at an Apple Store")
                     .font(.footnote)
                     .foregroundStyle(.gray)
-                Button(action: {}, label: {
+                Button(action: {
+                    print("Santo")
+                }, label: {
                     Text("Learn more")
-                        .accessibilityLabel("Learn more")
                         .font(.footnote)
+                    
                 })
+                .accessibilityRemoveTraits(.isButton)
                 
             })
             .accessibilityElement(children: .combine)
+            .accessibilityAddTraits(.isButton)
             
         }
     }

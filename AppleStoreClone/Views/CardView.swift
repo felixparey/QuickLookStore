@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-
-
 struct CardView: View {
     
     @Environment(\.horizontalSizeClass) private var sizeClass
@@ -30,6 +28,7 @@ struct CardView: View {
                     Image(card.imageName)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
+                        .accessibilityHidden(true)
                     
                     HStack {
                         VStack(alignment: .leading, spacing: 0) {
@@ -46,10 +45,10 @@ struct CardView: View {
                     }
                     .padding()
                 }
-                .overlay(alignment: .bottom) {
-                    BuyView(card: card)
-                        
-                }
+//                .overlay(alignment: .bottom) {
+//                    BuyView(card: card)
+//                        
+//                }
             })
             .accessibilityLabel("Find out more about \(card.title)")
             
@@ -126,6 +125,7 @@ struct BuyView: View {
 //                .frame(height: 70)
             HStack {
                 Text("From $\(card.price, specifier: "%.0f") or $\(card.price/24, specifier: "%.2f")/mo. for 24 mo.*")
+                    .accessibilityLabel("From $\(card.price, specifier: "%.0f") or $\(card.price/24, specifier: "%.2f") per month for 24 months *")
                     .font(.caption)
                     .foregroundStyle(.black)
                     
