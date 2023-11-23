@@ -10,7 +10,7 @@ import Observation
 import SwiftUI
 
 class CardsViewModel{
-    
+    //Fahmi has a Hub Account
     // Creates the individual Cards
     let cards: [Card] =
     [
